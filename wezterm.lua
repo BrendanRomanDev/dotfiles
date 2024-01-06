@@ -14,13 +14,14 @@ config.initial_rows = 40
 config.initial_cols = 120
 
 --  Styling
-config.color_scheme = "Solarized Dark Higher Contrast"
+-- config.color_scheme = "Solarized Dark Higher Contrast"
+config.color_scheme = "catppuccin-mocha"
 config.font = wezterm.font("SpaceMono Nerd Font Mono")
 config.font_size = 13
 -- -- disable ligatures
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-config.window_background_opacity = 0.65
-config.macos_window_background_blur = 30
+config.window_background_opacity = 0.80
+config.macos_window_background_blur = 60
 -- -- inactive pane styling
 config.inactive_pane_hsb = {
 	saturation = 1,
@@ -40,8 +41,8 @@ config.keys = {
 	-- -- resize
 	{ key = "h", mods = "CTRL | CMD", action = wezterm.action.AdjustPaneSize({ "Left", 10 }) },
 	{ key = "l", mods = "CTRL | CMD", action = wezterm.action.AdjustPaneSize({ "Right", 10 }) },
-	{ key = "k", mods = "CTRL | CMD", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
-	{ key = "j", mods = "CTRL | CMD", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
+	{ key = "k", mods = "CTRL | CMD", action = wezterm.action.AdjustPaneSize({ "Up", 3 }) },
+	{ key = "j", mods = "CTRL | CMD", action = wezterm.action.AdjustPaneSize({ "Down", 3 }) },
 	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontAndWindowSize },
 	-- -- selection
 	{ key = "n", mods = "CTRL | CMD", action = wezterm.action.ActivatePaneDirection("Next") },
@@ -49,6 +50,7 @@ config.keys = {
 	{ key = ",", mods = "CTRL | CMD", action = wezterm.action.PaneSelect },
 	-- Rotation / Swap
 	{ key = "Tab", mods = "CTRL | CMD", action = wezterm.action.RotatePanes("CounterClockwise") },
+	{ key = "i", mods = "CTRL | CMD", action = wezterm.action.RotatePanes("CounterClockwise") },
 }
 
 -- Window swapping with cmd alt + windowNum
