@@ -51,6 +51,7 @@ config.keys = {
 	-- Rotation / Swap
 	{ key = "Tab", mods = "CTRL | CMD", action = wezterm.action.RotatePanes("CounterClockwise") },
 	{ key = "i", mods = "CTRL | CMD", action = wezterm.action.RotatePanes("CounterClockwise") },
+	{ key = "o", mods = "CTRL | CMD", action = wezterm.action.RotatePanes("Clockwise") },
 }
 
 -- Window swapping with cmd alt + windowNum
@@ -73,7 +74,7 @@ for i = 1, 8 do
 	})
 end
 
---  Update tab titles based on cwd
+-- Update tab titles based on cwd
 wezterm.on("update-status", function(window)
 	local active_pane = window:active_tab():active_pane()
 
@@ -82,9 +83,9 @@ wezterm.on("update-status", function(window)
 		return
 	end
 
-	local cwd = active_pane:get_current_working_dir()
+	local cwd = tostring(active_pane:get_current_working_dir())
 	local curr_tab_title = active_pane:tab():get_title()
-	local new_tab_title = string.match(cwd, "/([^/\\]+)[/\\]?$")
+	local new_tab_title = cwd:match("/([^/]+)$")
 
 	if curr_tab_title ~= new_tab_title then
 		window:active_tab():set_title(new_tab_title)
