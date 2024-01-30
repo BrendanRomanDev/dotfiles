@@ -5,6 +5,8 @@ Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH=${PATH}:/usr/local/mysql/bin
 export EDITOR=nvim
+# setting this to ensure undercurl after installing wezterm info
+# https://wezfurlong.org/wezterm/faq.html?h=undercurl#how-do-i-enable-undercurl-curly-underlines
 export TERM=wezterm
 
 ## Opts
