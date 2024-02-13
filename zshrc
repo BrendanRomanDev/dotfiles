@@ -21,7 +21,7 @@ setopt HIST_IGNORE_ALL_DUPS
 eval "$(jump shell zsh)"
 
 # aliases and functions
-alias wezconf='cd && nvim .wezterm.lua'
+alias wezconf='j dotfiles && nvim wezterm.lua'
 alias lovey='love .'
 alias sql='mysql -u root -p';
 alias jts='j thrive/server'
