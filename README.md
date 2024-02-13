@@ -6,3 +6,4 @@
 - `ln -s ~/.config/dotfiles/yabairc ~/.config/yabai/yabairc`
 - `ln -s ~/.config/dotfiles/wezterm.lua ~/.wezterm.lua`
 - `ln -s ~/.config/dotfiles/zshrc ~/.zshrc`
+- `ln -s ~/.config/dotfiles/skhdrc ~/.config/skhd/skhdrc`
