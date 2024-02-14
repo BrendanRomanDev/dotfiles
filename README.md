@@ -3,7 +3,8 @@
 1. Make sure to clone dotfiles to ~/.config/
 2. Create Symlinks:
 
-- `ln -s ~/.config/dotfiles/wezterm.lua ~/.wezterm.lua`
-- `ln -s ~/.config/dotfiles/zshrc ~/.zshrc`
-- `ln -s ~/.config/dotfiles/yabairc ~/.config/yabai/yabairc`
-- `ln -s ~/.config/dotfiles/skhdrc ~/.config/skhd/skhdrc`
+- `mkdir ~/.config/skhd ~/.config/yabai`
+- `ln -s ~/.dotfiles/wezterm.lua ~/.wezterm.lua`
+- `ln -s ~/.dotfiles/zshrc ~/.zshrc`
+- `ln -s ~/.dotfiles/yabairc ~/.config/yabai/yabairc`
+- `ln -s ~/.dotfiles/skhdrc ~/.config/skhd/skhdrc`

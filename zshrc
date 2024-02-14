@@ -22,6 +22,8 @@ eval "$(jump shell zsh)"
 
 # aliases and functions
 alias wezconf='j dotfiles && nvim wezterm.lua'
+alias ys='yabai --start-service && skhd --start-service'
+alias ye='yabai --stop-service && skhd --stop-service'
 alias lovey='love .'
 alias sql='mysql -u root -p';
 alias jts='j thrive/server'
