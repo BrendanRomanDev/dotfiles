@@ -16,7 +16,7 @@ config.initial_cols = 120
 --  Styling
 -- config.color_scheme = "Solarized Dark Higher Contrast"
 config.color_scheme = "catppuccin-mocha"
-config.font = wezterm.font("SpaceMono Nerd Font Mono")
+-- config.font = wezterm.font("SpaceMono Nerd Font Mono")
 config.font_size = 13
 -- -- disable ligatures
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
