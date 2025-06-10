@@ -27,6 +27,7 @@ config.inactive_pane_hsb = {
 	saturation = 1,
 	brightness = 0.4,
 }
+config.enable_scroll_bar = true
 
 -- Updates
 config.status_update_interval = 10000

@@ -4,10 +4,13 @@ export PATH="$PATH:/Applications/Visual Studio
 Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 export PATH=${PATH}:/usr/local/mysql/bin
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export EDITOR=nvim
 # setting this to ensure undercurl after installing wezterm info
 # https://wezfurlong.org/wezterm/faq.html?h=undercurl#how-do-i-enable-undercurl-curly-underlines
 export TERM=wezterm
+# local helper for TW 'DOCTYPE <' issue on TW frontend locally
+# export NODE_COMPILE_CACHE=~/.cache/nodejs-compile-cache
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
