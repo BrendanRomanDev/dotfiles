@@ -16,6 +16,11 @@ config.initial_cols = 120
 --  Styling
 -- config.color_scheme = "Solarized Dark Higher Contrast"
 config.color_scheme = "catppuccin-mocha"
+config.colors = {
+	scrollbar_thumb = "#94e2d5",
+	split = "#94e2d5",
+}
+
 -- config.font = wezterm.font("SpaceMono Nerd Font Mono")
 config.font_size = 13
 -- -- disable ligatures
@@ -28,6 +33,7 @@ config.inactive_pane_hsb = {
 	brightness = 0.4,
 }
 config.enable_scroll_bar = true
+config.scrollback_lines = 7000
 
 -- Updates
 config.status_update_interval = 10000
