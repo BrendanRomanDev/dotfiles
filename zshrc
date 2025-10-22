@@ -41,6 +41,7 @@ alias jtwo='j thrive/web && nvim'
 alias jteo='j thrive/ehr && nvim'
 alias dcu='docker compose up'
 alias dcd='docker compose down'
+alias cdsp='claude --dangerously-skip-permissions'
 
 # repeat command history
 fh() {
