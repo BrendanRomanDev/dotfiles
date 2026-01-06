@@ -1,5 +1,6 @@
 # Paths
 export PATH=/opt/homebrew/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio 
 Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
@@ -54,3 +55,4 @@ fe() {
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
