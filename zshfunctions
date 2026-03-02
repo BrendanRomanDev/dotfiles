@@ -1,0 +1,26 @@
+# Shell functions sourced by zshrc
+# Keep aliases in zshrc, longer functions here
+
+# repeat command history
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --height "50%" | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+}
+
+# fuzzy enter file from $EDITOR
+fe() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# rename wezterm tab (pairs with update-status handler in wezterm.lua)
+# usage: tabn "Server"  |  tabn (no args = clear, back to auto)
+tabn() {
+  local marker="/tmp/wezterm-tabn-${WEZTERM_PANE}"
+  if [[ -z "$1" ]]; then
+    rm -f "$marker"
+    echo "Tab name cleared (back to auto)"
+  else
+    printf '%s' "$1" > "$marker"
+    echo "Tab renamed: $1"
+  fi
+}

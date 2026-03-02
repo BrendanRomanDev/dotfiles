@@ -50,32 +50,9 @@ alias cdsp='claude --dangerously-skip-permissions'
 alias tc='tmux attach -t claude || tmux new -s claude'
 alias tb='tmux attach -t buddy || tmux new -s buddy -c /Users/broman/Documents/Programming/TodoTalk "claude --dangerously-skip-permissions /buddy"'
 
- # WEZTERM NOTIFY COMMANDS
-# Enable notifications for current tab
-notify-on() {
-  printf "\033]1337;SetUserVar=%s=%s\007" wez_notify_enabled $(echo -n "1" | base64)
-}
+# TODO: figure out wezterm notifications for claude code completion (notify-on, notify-off, notify)
 
-# Disable notifications for current tab
-notify-off() {
-  printf "\033]1337;SetUserVar=%s=%s\007" wez_notify_enabled $(echo -n "0" | base64)
-}
-
-# Send a notification (only shows if enabled)
-notify() {
-  printf "\033]1337;SetUserVar=%s=%s\007" wez_notify $(echo -n "$1" | base64)
-}
-
-
-# repeat command history
-fh() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac --height "50%" | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
-}
-
-# fuzzy enter file from $EDITOR
-fe() {
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-}
+# shell functions (fh, fe, tabn, etc.)
+[ -f "$HOME/.dotfiles/zshfunctions" ] && source "$HOME/.dotfiles/zshfunctions"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
