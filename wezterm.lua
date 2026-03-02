@@ -81,7 +81,7 @@ for i = 1, 8 do
 	})
 end
 
--- Update tab titles based on cwd
+-- Update tab titles based on cwd (with manual override support via `tabn`)
 wezterm.on("update-status", function(window)
 	local active_pane = window:active_tab():active_pane()
 
@@ -90,6 +90,22 @@ wezterm.on("update-status", function(window)
 		return
 	end
 
+	-- manual override via marker file (set with `tabn "name"` in shell)
+	local pane_id = active_pane:pane_id()
+	local marker = io.open("/tmp/wezterm-tabn-" .. tostring(pane_id), "r")
+	if marker then
+		local override = marker:read("*l")
+		marker:close()
+		if override and override ~= "" then
+			local curr = active_pane:tab():get_title()
+			if curr ~= override then
+				window:active_tab():set_title(override)
+			end
+			return
+		end
+	end
+
+	-- default: derive from cwd
 	local cwd = tostring(active_pane:get_current_working_dir())
 	local curr_tab_title = active_pane:tab():get_title()
 	local new_tab_title = cwd:match("/([^/]+)$")
