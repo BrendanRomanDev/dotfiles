@@ -1,6 +1,7 @@
 # Paths
 export PATH=/opt/homebrew/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=$HOME/.local/bin:/opt/homebrew/bin:$PATH
 export PATH="$PATH:/Applications/Visual Studio 
 Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
@@ -18,6 +19,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f .zshenv ] && source .zshenv
+
+## Workaround for Claude Code file descriptor leak (github.com/anthropics/claude-code/issues/29573)
+ulimit -n 65536
 
 ## Opts
 ## vi keybindings in linux shell
@@ -43,6 +47,25 @@ alias jteo='j thrive/ehr && nvim'
 alias dcu='docker compose up'
 alias dcd='docker compose down'
 alias cdsp='claude --dangerously-skip-permissions'
+alias tc='tmux attach -t claude || tmux new -s claude'
+alias tb='tmux attach -t buddy || tmux new -s buddy -c /Users/broman/Documents/Programming/TodoTalk "claude --dangerously-skip-permissions /buddy"'
+
+ # WEZTERM NOTIFY COMMANDS
+# Enable notifications for current tab
+notify-on() {
+  printf "\033]1337;SetUserVar=%s=%s\007" wez_notify_enabled $(echo -n "1" | base64)
+}
+
+# Disable notifications for current tab
+notify-off() {
+  printf "\033]1337;SetUserVar=%s=%s\007" wez_notify_enabled $(echo -n "0" | base64)
+}
+
+# Send a notification (only shows if enabled)
+notify() {
+  printf "\033]1337;SetUserVar=%s=%s\007" wez_notify $(echo -n "$1" | base64)
+}
+
 
 # repeat command history
 fh() {
